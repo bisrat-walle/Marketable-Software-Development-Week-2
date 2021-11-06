@@ -7,6 +7,9 @@
     </head>
     <body>
         <h1>TODO</h1>
+        {% for message in messages %}
+        <h4>{{message}}</h4>
+        {% endfor %}
         {% for task in tasks %}
         <div>
             <h3>{{ task.title }}</h3>

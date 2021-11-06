@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
 
@@ -10,6 +11,7 @@ def index(request):
         task_form = TaskForm(data)
         if task_form.is_valid():
             task_form.save()
+            messages.info(request, 'Task Item created!')
             redirect('tasks')
     task_form = TaskForm()
     context = {
@@ -23,6 +25,7 @@ def remove_task(request, task_id):
     task = Task.objects.filter(id=task_id)
     if task.exists():
         task.delete()
+    messages.info(request, 'Task Item removed!')
     return redirect('tasks')
 
 
