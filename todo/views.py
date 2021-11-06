@@ -18,3 +18,11 @@ def index(request):
     }
     return render(request, 'todo/index.html', context)
     
+
+def remove_task(request, task_id):
+    task = Task.objects.filter(id=task_id)
+    if task.exists():
+        task.delete()
+    return redirect('tasks')
+
+

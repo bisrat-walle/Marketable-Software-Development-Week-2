@@ -12,6 +12,8 @@
             <h3>{{ task.title }}</h3>
             <h4>{{ task.details }}</h4>
             <h5>{{ task.date_created }}</h5>
+            <a href="/remove/{{task.id}}">Remove</a>
+
         <div>
         {% endfor %}
         <form action="{% url 'tasks' %}" method="post">
