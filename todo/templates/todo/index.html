@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TODO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>TODO</h1>
+        {% for task in tasks %}
+        <div>
+            <h3>{{ task.title }}</h3>
+            <h4>{{ task.details }}</h4>
+            <h5>{{ task.date_created }}</h5>
+        <div>
+        {% endfor %}
+        <form action="{% url 'tasks' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn" type="submit" value="Save">
+        </form>
+    </body>
+</html>
